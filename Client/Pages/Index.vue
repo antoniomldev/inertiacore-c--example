@@ -1,13 +1,17 @@
-﻿<script setup>
-import { Head } from '@inertiajs/vue3'
+﻿<script setup lang="ts">
+import {Head, usePage} from '@inertiajs/vue3'
+
+const page = usePage<{
+  message: string
+}>()
 
 </script>
 
 <template>
-
-</template>
 <Head title="Welcome"></Head>
-<h1>Welcome</h1>
+<h1>{{ page.props.message }} </h1>
+</template>
+
 <style scoped>
 
 </style>

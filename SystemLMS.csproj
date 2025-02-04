@@ -4,15 +4,24 @@
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+
+        <SpaRoot>Client</SpaRoot>
+        <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)/node_modules/**</DefaultItemExcludes>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="AspNetCore.InertiaCore" Version="0.0.9" />
+        <!-- Don't publish the SPA source files, but do show them in the project files list -->
+        <Content Remove="$(SpaRoot)/**" />
+        <None Remove="$(SpaRoot)/**" />
+        <None Include="$(SpaRoot)/**" Exclude="$(SpaRoot)/node_modules/**" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="InertiaNetCore" Version="0.0.15" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Client\src\" />
       <Folder Include="wwwroot\" />
+      <Folder Include="wwwroot\build\" />
     </ItemGroup>
-
 </Project>
