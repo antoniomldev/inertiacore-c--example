@@ -1,4 +1,4 @@
-﻿import { createApp, h } from 'vue';
+import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 // Import css resources here instead in vite.config.ts under laravel settings
@@ -6,11 +6,11 @@ import './app.css';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Inertia';
 
-await createInertiaApp({
+createInertiaApp({
     resolve: (name) =>
         resolvePageComponent(
             `./Pages/${name}.vue`,
-            import.meta.glob<DefineComponent>('./Pages/**/*.vue')
+            import.meta.glob('./Pages/**/*.vue')
         ),
     setup({el, App, props, plugin}) {
         createApp({render: () => h(App, props)})

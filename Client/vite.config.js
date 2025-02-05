@@ -1,4 +1,4 @@
-﻿import {defineConfig} from 'vite';
+import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
 import laravel from "laravel-vite-plugin";
 import path from "path";
@@ -11,7 +11,7 @@ mkdirSync(outDir, {recursive: true});
 export default defineConfig({
     plugins: [
         laravel({
-            input: ["src/app.js"],
+            input: ["app.js", "app.css"],
             publicDirectory: outDir,
             refresh: true,
         }),

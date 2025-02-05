@@ -1,4 +1,4 @@
-using InertiaCore.Extensions;
+using InertiaNetCore.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
